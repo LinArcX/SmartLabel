@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SmartLabel">
+        <attr name="smartLabel_textTitle" format="string"/>
+        <attr name="smartLabel_textBody" format="string"/>
+
+        <attr name="smartLabel_title_textColor" format="color"/>
+        <attr name="smartLabel_title_backGroundColor" format="color"/>
+        <attr name="smartLabel_title_padding" format="dimension"/>
+
+        <attr name="smartLabel_body_textColor" format="color"/>
+        <attr name="smartLabel_body_backGroundColor" format="color"/>
+        <attr name="smartLabel_body_padding" format="dimension"/>
+
+        <attr name="smartLabel_image_tintColor" format="color"/>
+        <attr name="smartLabel_image_BackGroundColor" format="color"/>
+        <attr name="smartLabel_image_padding" format="dimension"/>
+        <attr name="smartLabel_image" format="reference"/>
+    </declare-styleable>
+</resources>

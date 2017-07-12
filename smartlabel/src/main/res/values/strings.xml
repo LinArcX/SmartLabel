@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SmartLabel</string>
+    <string name="smart_label_title">title</string>
+    <string name="smart_label_body">body</string>
+</resources>
