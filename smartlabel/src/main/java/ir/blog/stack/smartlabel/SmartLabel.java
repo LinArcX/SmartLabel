@@ -10,7 +10,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+/**
+ * this class inherit form constraint layout and composed of:
+ * 1- A textView as Title Message
+ * 2- Another textView as Body Message
+ * 3- An imageView to Show Action
+ */
 public class SmartLabel extends ConstraintLayout {
     private final static int ATTRS_PADDING_TITLE_DEFAULT = 10;
     private final static int ATTRS_PADDING_BODY_DEFAULT = 10;
@@ -38,6 +43,11 @@ public class SmartLabel extends ConstraintLayout {
         initialize(context, attrs);
     }
 
+    /**
+     * initialize all views and set listener for them.
+     * @param context
+     * @param attrs
+     */
     private void initialize(Context context, AttributeSet attrs) {
         this.context = context;
 
@@ -129,14 +139,26 @@ public class SmartLabel extends ConstraintLayout {
         imageView.setImageDrawable(finalImage);
     }
 
+    /**
+     * Set padding for title textView
+     * @param newPadding
+     */
     public void setTitlePadding(int newPadding){
         textViewTitle.setPadding(newPadding, newPadding, newPadding, newPadding);
     }
 
+    /**
+     * set Padding For Body textView
+     * @param newPadding
+     */
     public void setBodyPadding(int newPadding){
         textViewBody.setPadding(newPadding, newPadding, newPadding, newPadding);
     }
 
+    /**
+     * set padding for imageView
+     * @param newPadding
+     */
     public void setImagePadding(int newPadding){
         imageView.setPadding(newPadding, newPadding, newPadding, newPadding);
     }
@@ -214,6 +236,10 @@ public class SmartLabel extends ConstraintLayout {
         void onBodyClick(TextView body);
     }
 
+    /**
+     * Set body Click Listener
+     * @param listener
+     */
     public void setOnBodyClickListener(OnBodyClickListener listener){
         bodyClickListener = listener;
     }
