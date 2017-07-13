@@ -8,16 +8,45 @@
     tools:context="ir.blog.stack.smartlabelproject.MainActivity">
 
     <ir.blog.stack.smartlabel.SmartLabel
-        android:id="@+id/smart_label"
+        android:id="@+id/smart_label_help"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="34dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        app:smartLabel_textBody="click Me!"
+        app:smartLabel_textTitle="Help"
+        app:smartLabel_textBody="Please Help Me!"
+        app:smartLabel_image="@drawable/ic_help"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ir.blog.stack.smartlabel.SmartLabel
+        android:id="@+id/smart_label_folder"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        app:smartLabel_textTitle="Files"
+        app:smartLabel_textBody="Open File..."
+        app:smartLabel_image="@drawable/ic_folder"
+        app:layout_constraintTop_toBottomOf="@+id/smart_label_help"
+        app:layout_constraintLeft_toLeftOf="@+id/smart_label_help"
+        app:layout_constraintRight_toRightOf="@+id/smart_label_help" />
+
+    <ir.blog.stack.smartlabel.SmartLabel
+        android:id="@+id/smart_label_default"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        app:smartLabel_textTitle="Label"
+        app:smartLabel_textBody="This is SmartLabel"
+        app:smartLabel_title_backGroundColor="@color/lightBrown1"
+        app:smartLabel_body_backGroundColor="@color/lightBrown2"
+        app:smartLabel_image_BackGroundColor="@color/lightBrown3"
+        app:layout_constraintTop_toBottomOf="@+id/smart_label_folder"
+        app:layout_constraintLeft_toLeftOf="@+id/smart_label_folder"
+        app:layout_constraintRight_toRightOf="@+id/smart_label_folder" />
+
 </android.support.constraint.ConstraintLayout>

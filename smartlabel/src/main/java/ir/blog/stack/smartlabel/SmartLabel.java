@@ -99,7 +99,7 @@ public class SmartLabel extends ConstraintLayout {
             setBodyTextColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_body_textColor, getResources().getColor(R.color.black)));
             setBodyBackGroundColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_body_backGroundColor, getResources().getColor(R.color.lightGrey3)));
 
-            setImageTintColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_image_tintColor, getResources().getColor(R.color.Red)));
+            setImageTintColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_image_tintColor, 0));
             setImageBackGroundColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_image_BackGroundColor, getResources().getColor(R.color.lightGrey3)));
         }finally {
             attributes.recycle();
