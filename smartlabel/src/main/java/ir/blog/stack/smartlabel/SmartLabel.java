@@ -113,7 +113,7 @@ public class SmartLabel extends ConstraintLayout {
      *
      * @param newTitle
      */
-    private void setTitle(String newTitle) {
+    public void setTitle(String newTitle) {
         String finalTitle = newTitle != null ? newTitle : getResources().getString(R.string.smart_label_title);
         textViewTitle.setText(finalTitle);
     }
@@ -125,7 +125,7 @@ public class SmartLabel extends ConstraintLayout {
      *
      * @param newBody
      */
-    private void setBody(String newBody) {
+    public void setBody(String newBody) {
         String finalBody = newBody != null ? newBody : getResources().getString(R.string.smart_label_body);
         textViewBody.setText(finalBody);
     }
