@@ -22,6 +22,7 @@ public class SmartLabel extends ConstraintLayout {
     private final static int ATTRS_PADDING_IMAGE_DEFAULT = 10;
 
     private OnBodyClickListener bodyClickListener;
+    private OnImageClickListener imageClickListener;
     private ConstraintLayout container;
     private TextView textViewTitle;
     private TextView textViewBody;
@@ -45,6 +46,7 @@ public class SmartLabel extends ConstraintLayout {
 
     /**
      * initialize all views and set listener for them.
+     *
      * @param context
      * @param attrs
      */
@@ -57,20 +59,25 @@ public class SmartLabel extends ConstraintLayout {
         container = (ConstraintLayout) findViewById(R.id.smart_label);
 
         textViewTitle = (TextView) findViewById(R.id.text_view_title);
-        imageView = (ImageView) findViewById(R.id.image_view);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textViewBody.setText("");
-            }
-        });
 
         textViewBody = (TextView) findViewById(R.id.text_view_body);
         textViewBody.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bodyClickListener != null){
+                if (bodyClickListener != null) {
                     bodyClickListener.onBodyClick(textViewBody);
+                }
+            }
+        });
+
+        imageView = (ImageView) findViewById(R.id.image_view);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageClickListener != null) {
+                    imageClickListener.onImageClick(imageView);
+                }else {
+                    textViewBody.setText("");
                 }
             }
         });
@@ -80,6 +87,7 @@ public class SmartLabel extends ConstraintLayout {
 
     /**
      * Get all Attributes from xml layout and apply them to components in the customView
+     *
      * @param attrs
      */
     private void applyXmlAttributes(AttributeSet attrs) {
@@ -101,9 +109,16 @@ public class SmartLabel extends ConstraintLayout {
 
             setImageTintColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_image_tintColor, 0));
             setImageBackGroundColor(attributes.getColor(R.styleable.SmartLabel_smartLabel_image_BackGroundColor, getResources().getColor(R.color.lightGrey3)));
-        }finally {
+        } finally {
             attributes.recycle();
         }
+    }
+
+    /**
+     * Get Title's Text.
+     */
+    public String getTitle() {
+        return textViewTitle.getText().toString();
     }
 
     /**
@@ -116,6 +131,13 @@ public class SmartLabel extends ConstraintLayout {
     public void setTitle(String newTitle) {
         String finalTitle = newTitle != null ? newTitle : getResources().getString(R.string.smart_label_title);
         textViewTitle.setText(finalTitle);
+    }
+
+    /**
+     * Get Body's Text.
+     */
+    public String getBody() {
+        return textViewBody.getText().toString();
     }
 
     /**
@@ -132,34 +154,38 @@ public class SmartLabel extends ConstraintLayout {
 
     /**
      * Sets the default Image
+     *
      * @param imageId
      */
-    public void setImage(Drawable imageId){
+    public void setImage(Drawable imageId) {
         Drawable finalImage = imageId != null ? imageId : getResources().getDrawable(R.drawable.ic_error);
         imageView.setImageDrawable(finalImage);
     }
 
     /**
      * Set padding for title textView
+     *
      * @param newPadding
      */
-    public void setTitlePadding(int newPadding){
+    public void setTitlePadding(int newPadding) {
         textViewTitle.setPadding(newPadding, newPadding, newPadding, newPadding);
     }
 
     /**
      * set Padding For Body textView
+     *
      * @param newPadding
      */
-    public void setBodyPadding(int newPadding){
+    public void setBodyPadding(int newPadding) {
         textViewBody.setPadding(newPadding, newPadding, newPadding, newPadding);
     }
 
     /**
      * set padding for imageView
+     *
      * @param newPadding
      */
-    public void setImagePadding(int newPadding){
+    public void setImagePadding(int newPadding) {
         imageView.setPadding(newPadding, newPadding, newPadding, newPadding);
     }
 
@@ -230,6 +256,24 @@ public class SmartLabel extends ConstraintLayout {
     }
 
     /**
+     * Set body Click Listener
+     *
+     * @param listener
+     */
+    public void setOnBodyClickListener(OnBodyClickListener listener) {
+        bodyClickListener = listener;
+    }
+
+    /**
+     * Set image Click Listener
+     *
+     * @param listener
+     */
+    public void setOnImageClickListener(OnImageClickListener listener) {
+        imageClickListener = listener;
+    }
+
+    /**
      * Define Interface for Body Listeners
      */
     public interface OnBodyClickListener {
@@ -237,10 +281,9 @@ public class SmartLabel extends ConstraintLayout {
     }
 
     /**
-     * Set body Click Listener
-     * @param listener
+     * Define Interface for Image Listeners
      */
-    public void setOnBodyClickListener(OnBodyClickListener listener){
-        bodyClickListener = listener;
+    public interface OnImageClickListener {
+        void onImageClick(ImageView image);
     }
 }
