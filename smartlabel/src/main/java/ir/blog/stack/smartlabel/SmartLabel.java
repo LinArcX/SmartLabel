@@ -93,8 +93,13 @@ public class SmartLabel extends ConstraintLayout {
     private void applyXmlAttributes(AttributeSet attrs) {
         attributes = getContext().obtainStyledAttributes(attrs, R.styleable.SmartLabel);
         try {
-            setTitle(attributes.getString(R.styleable.SmartLabel_smartLabel_textTitle));
-            setBody(attributes.getString(R.styleable.SmartLabel_smartLabel_textBody));
+            String titleExists = attributes.getString(R.styleable.SmartLabel_smartLabel_title_exists);
+            if (titleExists == null || titleExists.equals("true")){
+                setTitle(attributes.getString(R.styleable.SmartLabel_smartLabel_textTitle));
+                setBody(attributes.getString(R.styleable.SmartLabel_smartLabel_textBody));
+            }else {
+                setHint(attributes.getString(R.styleable.SmartLabel_smartLabel_textBody));
+            }
             setImage(attributes.getDrawable(R.styleable.SmartLabel_smartLabel_image));
 
             setTitlePadding(attributes.getDimensionPixelSize(R.styleable.SmartLabel_smartLabel_title_padding, ATTRS_PADDING_TITLE_DEFAULT));
@@ -150,6 +155,18 @@ public class SmartLabel extends ConstraintLayout {
     public void setBody(String newBody) {
         String finalBody = newBody != null ? newBody : getResources().getString(R.string.smart_label_body);
         textViewBody.setText(finalBody);
+    }
+
+    /**
+     * Set Body's Hint.
+     * Default = R.string.smart_label_from_date_body
+     * which is "hint" (when device language is set to english)
+     *
+     * @param hint
+     */
+    public void setHint(String hint) {
+        String finalHint = hint != null ? hint : getResources().getString(R.string.smart_label_body);
+        textViewBody.setHint(finalHint);
     }
 
     /**

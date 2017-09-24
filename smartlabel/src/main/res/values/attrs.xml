@@ -3,7 +3,9 @@
     <declare-styleable name="SmartLabel">
         <attr name="smartLabel_textTitle" format="string"/>
         <attr name="smartLabel_textBody" format="string"/>
+        <attr name="smartLabel_textBody_hint" format="string"/>
 
+        <attr name="smartLabel_title_exists" format="boolean"/>
         <attr name="smartLabel_title_textColor" format="color"/>
         <attr name="smartLabel_title_backGroundColor" format="color"/>
         <attr name="smartLabel_title_padding" format="dimension"/>

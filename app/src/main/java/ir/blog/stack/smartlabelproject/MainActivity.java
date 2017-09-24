@@ -27,16 +27,16 @@ public class MainActivity extends AppCompatActivity implements SmartLabel.OnBody
 
         smartLabelHelp.setOnImageClickListener(this);
 
-        smartLabelFolder = (SmartLabel) findViewById(R.id.smart_label_folder);
-        smartLabelFolder.setOnBodyClickListener(new SmartLabel.OnBodyClickListener() {
-            @Override
-            public void onBodyClick(TextView body) {
-
-            }
-        });
-
-        smartLabelDefault = (SmartLabel) findViewById(R.id.smart_label_default);
-        smartLabelDefault.setOnBodyClickListener(this);
+//        smartLabelFolder = (SmartLabel) findViewById(R.id.smart_label_folder);
+//        smartLabelFolder.setOnBodyClickListener(new SmartLabel.OnBodyClickListener() {
+//            @Override
+//            public void onBodyClick(TextView body) {
+//
+//            }
+//        });
+//
+//        smartLabelDefault = (SmartLabel) findViewById(R.id.smart_label_default);
+//        smartLabelDefault.setOnBodyClickListener(this);
 
     }
 
