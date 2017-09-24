@@ -4,7 +4,7 @@
 A Composit Smart View
 
 ## Preview
-!["smartLabel"](assets/smartLabelDemo.png "tvdoon")
+!["smartLabel"](assets/SmartLabelGithub.png "tvdoon")
 
 Documanation is Here:
 https://jitpack.io/com/github/LinArcX/SmartLabel/0.1.0/javadoc/
